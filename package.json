@@ -2,10 +2,23 @@
   "name": "@loopx/crypto",
   "version": "0.3.1",
   "description": "The missing crypto module for Node.js. It provides you with a consistent interface across Node.js and the browser.",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "distt/index.d.ts",
   "engines": {
     "node": ">=10.16"
+  },
+  "author": "ty <towyuan@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "crypto",
+    "crypt",
+    "hash",
+    "sign",
+    "verify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tikrbits/loopx-crypto"
   },
   "scripts": {
     "prerelease": "cross-env CI=1 npm run test && node scripts/prerelease.js",
@@ -33,10 +46,8 @@
     "preunit": "npm run build",
     "unit": "lb-mocha \"dist/__tests__/unit/**/*.js\""
   },
-  "author": "ty <towyuan@outlook.com>",
-  "license": "MIT",
   "dependencies": {
-    "@loopx/bufio": "^1.2.0",
+    "@loopx/bufio": "^1.2.1",
     "bcrypto": "^5.3.0",
     "tslib": "^2.0.3"
   },
@@ -62,10 +73,6 @@
     "ora": "^5.1.0",
     "typescript": "^4.0.5"
   },
-  "keywords": [
-    "crypto",
-    "crypt"
-  ],
   "browser": {
     "./aead": "./aead-browser.js",
     "./aes": "./aes-browser.js",

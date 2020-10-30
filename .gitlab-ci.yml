@@ -16,9 +16,6 @@ test:
   script:
     - npm run test:js
     - npm run test
-
-coverage:
-  script:
     - npm run coverage
   coverage: /Statements\s+:\s(\d+.?\d+)%/
   artifacts:
