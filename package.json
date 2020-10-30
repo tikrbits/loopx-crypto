@@ -24,8 +24,8 @@
     "access": "public"
   },
   "scripts": {
-    "prerelease": "cross-env CI=1 npm run test && node scripts/prerelease.js",
-    "release": "np",
+    "version": "cross-env CI=1 node scripts/prerelease.js",
+    "release": "np --no-2fa --contents dist",
     "build": "lb-tsc -b",
     "postbuild": "cpx \"./src/__tests__/data/**/*\" \"./dist/__tests__/data\"",
     "build:full": "npm ci --ignore-scripts && npm run clean && npm run build",
