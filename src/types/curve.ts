@@ -5,8 +5,8 @@ export interface Curve {
   bits: number;
 
   privateKeyGenerate(key: Buffer): Buffer;
+  privateKeyVerify?(key: Buffer): boolean;
 
-  privateKeyReduce?(key: Buffer): Buffer;
   scalarGenerate?(): Buffer;
   scalarClamp?(key: Buffer): Buffer;
 }

@@ -46,11 +46,17 @@ export class RNG {
     assert(curve.size >>> 0 === curve.size);
     assert(typeof curve.privateKeyGenerate === 'function');
 
-    const key = this.randomBytes(curve.size);
+    if (curve.type === 'ecdsa') {
+      let key: Buffer;
 
-    if (curve.type === 'ecdsa') return curve.privateKeyReduce!(key);
+      do {
+        key = this.randomBytes(curve.size);
+      } while (!curve.privateKeyVerify!(key));
 
-    return key;
+      return key;
+    }
+
+    return this.randomBytes(curve.size);
   }
 
   scalarGenerate(curve: Curve) {
